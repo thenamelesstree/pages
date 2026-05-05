@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | TheNamelessTree</title>
+    <meta name="description" content="Privacy Policy for TheNamelessTree — how we collect, use, and protect your personal data.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FAF8F5;
+            --sand: #F5F1EB;
+            --beige: #C4B59D;
+            --taupe: #9E8F7A;
+            --brown: #6B5E4F;
+            --dark: #3D3229;
+            --charcoal: #2C2416;
+            --gold: #B8A88A;
+            --white: #FFFFFF;
+            --transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 1px 20px rgba(44, 36, 22, 0.05);
+        }
+
+        nav.scrolled { padding: 1rem 4rem; }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .nav-logo img { height: 48px; width: auto; transition: var(--transition); }
+        .nav-logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.25em;
+            color: var(--charcoal);
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .nav-links { display: flex; gap: 3rem; list-style: none; align-items: center; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--brown);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--beige);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--charcoal); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 1px;
+            background: var(--charcoal);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--cream);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .mobile-nav.active { opacity: 1; pointer-events: all; }
+        .mobile-nav a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        /* Legal Page Styles */
+        .legal-header {
+            padding: 10rem 2rem 3rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--sand) 0%, var(--cream) 100%);
+            position: relative;
+        }
+
+        .legal-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: var(--beige);
+        }
+
+        .legal-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--beige);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .legal-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-date {
+            color: var(--taupe);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem 6rem;
+        }
+
+        .legal-section {
+            margin-bottom: 3rem;
+        }
+
+        .legal-section h2 {
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(196, 181, 157, 0.3);
+        }
+
+        .legal-section h3 {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin: 1.5rem 0 0.75rem;
+            font-weight: 500;
+        }
+
+        .legal-section p {
+            color: var(--brown);
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .legal-section ul {
+            margin: 1rem 0 1rem 1.5rem;
+            color: var(--brown);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        .legal-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .legal-section strong {
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        .legal-nav {
+            position: sticky;
+            top: 100px;
+            background: var(--white);
+            border: 1px solid rgba(196, 181, 157, 0.2);
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .legal-nav h4 {
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--taupe);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .legal-nav ul {
+            list-style: none;
+        }
+
+        .legal-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-nav a {
+            color: var(--brown);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 300;
+            transition: var(--transition);
+        }
+
+        .legal-nav a:hover {
+            color: var(--charcoal);
+        }
+
+        .legal-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem 6rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--taupe);
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content { max-width: 1200px; margin: 0 auto; }
+        .footer-logo { width: 80px; opacity: 0.6; margin-bottom: 2rem; }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--taupe);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover { color: var(--cream); }
+
+        .footer-divider {
+            width: 40px;
+            height: 1px;
+            background: var(--brown);
+            margin: 0 auto 2rem;
+            opacity: 0.5;
+        }
+
+        .footer-copy { font-size: 0.75rem; letter-spacing: 0.1em; opacity: 0.6; }
+        .footer-domain { margin-top: 0.5rem; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--beige); opacity: 0.8; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav { padding: 1rem 2rem; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .mobile-nav { display: flex; }
+            .legal-grid { grid-template-columns: 1fr; }
+            .legal-nav { position: static; }
+        }
+
+        @media (max-width: 640px) {
+            .legal-header { padding: 8rem 1.5rem 3rem; }
+            .legal-content, .legal-grid { padding: 3rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="img/thenamelesstree_logo.png" alt="TheNamelessTree Logo">
+            <span class="nav-logo-text">TheNamelessTree</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#ecosystem">Ecosystem</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="index.html#values">Values</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html#about">About</a>
+        <a href="index.html#ecosystem">Ecosystem</a>
+        <a href="team.html">Team</a>
+        <a href="index.html#values">Values</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+
+    <!-- Header -->
+    <header class="legal-header">
+        <span class="legal-label">Legal</span>
+        <h1 class="legal-title">Privacy Policy</h1>
+        <p class="legal-date">Last Updated: April 30, 2026</p>
+    </header>
+
+    <!-- Content -->
+    <div class="legal-grid">
+        <aside class="legal-nav">
+            <h4>Contents</h4>
+            <ul>
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#data-controller">2. Data Controller</a></li>
+                <li><a href="#collection">3. Data We Collect</a></li>
+                <li><a href="#usage">4. How We Use Data</a></li>
+                <li><a href="#legal-basis">5. Legal Basis</a></li>
+                <li><a href="#sharing">6. Data Sharing</a></li>
+                <li><a href="#security">7. Security</a></li>
+                <li><a href="#retention">8. Retention</a></li>
+                <li><a href="#rights">9. Your Rights</a></li>
+                <li><a href="#cookies">10. Cookies</a></li>
+                <li><a href="#changes">11. Changes</a></li>
+                <li><a href="#contact">12. Contact</a></li>
+            </ul>
+        </aside>
+
+        <div class="legal-content">
+            <div class="legal-section" id="introduction">
+                <h2>1. Introduction</h2>
+                <p>TheNamelessTree ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website <strong>thenamelesstree.africa</strong> or interact with our services.</p>
+                <p>By accessing or using our website, you agree to the collection and use of information in accordance with this policy. If you do not agree with our policies and practices, please do not use our website.</p>
+            </div>
+
+            <div class="legal-section" id="data-controller">
+                <h2>2. Data Controller</h2>
+                <p>TheNamelessTree is the data controller responsible for your personal data. We are registered in Africa and operate under applicable data protection laws including the Protection of Personal Information Act (POPIA) and, where applicable, the General Data Protection Regulation (GDPR).</p>
+                <p><strong>Contact:</strong> <a href="mailto:privacy@thenamelesstree.africa">privacy@thenamelesstree.africa</a></p>
+            </div>
+
+            <div class="legal-section" id="collection">
+                <h2>3. Information We Collect</h2>
+                <p>We collect several types of information from and about users of our website:</p>
+                <h3>3.1 Personal Information</h3>
+                <ul>
+                    <li><strong>Contact Information:</strong> Name, email address, company name, and message content when you submit our contact form.</li>
+                    <li><strong>Communications:</strong> Records of your correspondence with us, including emails and support requests.</li>
+                    <li><strong>Professional Information:</strong> Job title, organization, and areas of interest for partnership or investment inquiries.</li>
+                </ul>
+                <h3>3.2 Automatically Collected Information</h3>
+                <ul>
+                    <li><strong>Usage Data:</strong> IP address, browser type, operating system, pages visited, time spent on pages, and referring URLs.</li>
+                    <li><strong>Device Information:</strong> Device type, screen resolution, and language preferences.</li>
+                    <li><strong>Cookies:</strong> See Section 10 for detailed information about our cookie usage.</li>
+                </ul>
+            </div>
+
+            <div class="legal-section" id="usage">
+                <h2>4. How We Use Your Information</h2>
+                <p>We use the information we collect for the following purposes:</p>
+                <ul>
+                    <li><strong>To Respond to Inquiries:</strong> Processing and responding to your contact form submissions and emails.</li>
+                    <li><strong>To Provide Services:</strong> Delivering information about our ecosystem, products, and services.</li>
+                    <li><strong>To Improve Our Website:</strong> Analyzing usage patterns to enhance user experience and website functionality.</li>
+                    <li><strong>Legal Compliance:</strong> Complying with applicable laws, regulations, and legal processes.</li>
+                    <li><strong>Security:</strong> Protecting against unauthorized access, fraud, and other security risks.</li>
+                </ul>
+            </div>
+
+            <div class="legal-section" id="legal-basis">
+                <h2>5. Legal Basis for Processing</h2>
+                <p>Under GDPR and POPIA, we process your personal data based on the following legal grounds:</p>
+                <ul>
+                    <li><strong>Consent:</strong> When you explicitly agree to our processing (e.g., checking the consent box on our contact form).</li>
+                    <li><strong>Legitimate Interests:</strong> For website analytics, security, and improving our services.</li>
+                    <li><strong>Legal Obligation:</strong> When required by law or regulatory requirements.</li>
+                    <li><strong>Contract:</strong> When processing is necessary for the performance of a contract with you.</li>
+                </ul>
+            </div>
+
+            <div class="legal-section" id="sharing">
+                <h2>6. Data Sharing and Disclosure</h2>
+                <p>We do not sell your personal information. We may share your data in the following circumstances:</p>
+                <ul>
+                    <li><strong>Service Providers:</strong> With trusted third-party vendors who assist in website hosting, analytics, and email delivery, bound by confidentiality agreements.</li>
+                    <li><strong>Legal Requirements:</strong> When required by law, court order, or governmental authority.</li>
+                    <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets, with appropriate safeguards.</li>
+                    <li><strong>Affiliates:</strong> With our subsidiary companies (such as Shamwari) where necessary for service delivery, under data protection agreements.</li>
+                </ul>
+            </div>
+
+            <div class="legal-section" id="security">
+                <h2>7. Data Security</h2>
+                <p>We implement appropriate technical and organizational measures to protect your personal data:</p>
+                <ul>
+                    <li>SSL/TLS encryption for all data transmission.</li>
+                    <li>Regular security assessments and vulnerability testing.</li>
+                    <li>Access controls and authentication mechanisms.</li>
+                    <li>Employee training on data protection best practices.</li>
+                </ul>
+                <p>However, no method of transmission over the Internet is 100% secure. While we strive to protect your data, we cannot guarantee absolute security.</p>
+            </div>
+
+            <div class="legal-section" id="retention">
+                <h2>8. Data Retention</h2>
+                <p>We retain your personal information only for as long as necessary to fulfill the purposes outlined in this policy:</p>
+                <ul>
+                    <li><strong>Contact Form Submissions:</strong> Retained for 24 months unless you request deletion earlier.</li>
+                    <li><strong>Analytics Data:</strong> Retained for 12 months, then aggregated and anonymized.</li>
+                    <li><strong>Legal Records:</strong> Retained as required by applicable law (typically 5-7 years).</li>
+                </ul>
+                <p>After the retention period expires, your data is securely deleted or anonymized.</p>
+            </div>
+
+            <div class="legal-section" id="rights">
+                <h2>9. Your Rights</h2>
+                <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+                <ul>
+                    <li><strong>Right to Access:</strong> Request a copy of the personal data we hold about you.</li>
+                    <li><strong>Right to Rectification:</strong> Request correction of inaccurate or incomplete data.</li>
+                    <li><strong>Right to Erasure:</strong> Request deletion of your personal data ("Right to be Forgotten").</li>
+                    <li><strong>Right to Restrict Processing:</strong> Request limitation on how we use your data.</li>
+                    <li><strong>Right to Data Portability:</strong> Receive your data in a structured, machine-readable format.</li>
+                    <li><strong>Right to Object:</strong> Object to processing based on legitimate interests or direct marketing.</li>
+                    <li><strong>Right to Withdraw Consent:</strong> Withdraw consent at any time without affecting lawful processing before withdrawal.</li>
+                </ul>
+                <p>To exercise these rights, contact us at <a href="mailto:privacy@thenamelesstree.africa">privacy@thenamelesstree.africa</a>. We will respond within 30 days.</p>
+            </div>
+
+            <div class="legal-section" id="cookies">
+                <h2>10. Cookies and Tracking Technologies</h2>
+                <p>Our website uses cookies and similar technologies to enhance your browsing experience:</p>
+                <h3>10.1 Types of Cookies</h3>
+                <ul>
+                    <li><strong>Essential Cookies:</strong> Required for basic website functionality (e.g., navigation, security).</li>
+                    <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our website (e.g., Google Analytics).</li>
+                    <li><strong>Preference Cookies:</strong> Remember your settings and preferences for future visits.</li>
+                </ul>
+                <h3>10.2 Managing Cookies</h3>
+                <p>You can control cookies through your browser settings. Most browsers allow you to refuse or delete cookies. However, disabling cookies may affect website functionality.</p>
+            </div>
+
+            <div class="legal-section" id="changes">
+                <h2>11. Changes to This Policy</h2>
+                <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated "Last Updated" date. We encourage you to review this policy periodically. Continued use of our website after changes constitutes acceptance of the revised policy.</p>
+            </div>
+
+            <div class="legal-section" id="contact">
+                <h2>12. Contact Us</h2>
+                <p>If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+                <p><strong>Email:</strong> <a href="mailto:privacy@thenamelesstree.africa">privacy@thenamelesstree.africa</a></p>
+                <p><strong>Data Protection Officer:</strong> <a href="mailto:dpo@thenamelesstree.africa">dpo@thenamelesstree.africa</a></p>
+                <p><strong>Address:</strong> Available upon request via email</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="img/thenamelesstree_logo.png" alt="TheNamelessTree" class="footer-logo">
+            
+            <ul class="footer-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#ecosystem">Ecosystem</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="index.html#values">Values</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html">Terms of Service</a></li>
+            </ul>
+
+            <div class="footer-divider"></div>
+            
+            <p class="footer-copy">© <span id="year"></span> TheNamelessTree. All rights reserved.</p>
+            <p class="footer-domain">thenamelesstree.africa</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        });
+
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Update copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

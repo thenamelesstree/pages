@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | TheNamelessTree</title>
+    <meta name="description" content="Meet the leadership team behind TheNamelessTree — cultivating transformative technology across Africa.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FAF8F5;
+            --sand: #F5F1EB;
+            --beige: #C4B59D;
+            --taupe: #9E8F7A;
+            --brown: #6B5E4F;
+            --dark: #3D3229;
+            --charcoal: #2C2416;
+            --gold: #B8A88A;
+            --white: #FFFFFF;
+            --transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 1px 20px rgba(44, 36, 22, 0.05);
+        }
+
+        nav.scrolled { padding: 1rem 4rem; }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .nav-logo img { height: 48px; width: auto; transition: var(--transition); }
+        .nav-logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.25em;
+            color: var(--charcoal);
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .nav-links { display: flex; gap: 3rem; list-style: none; align-items: center; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--brown);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--beige);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--charcoal); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 1px;
+            background: var(--charcoal);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--cream);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .mobile-nav.active { opacity: 1; pointer-events: all; }
+        .mobile-nav a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 10rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--sand) 0%, var(--cream) 100%);
+            position: relative;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: var(--beige);
+        }
+
+        .page-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--beige);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--taupe);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-category { margin-bottom: 5rem; }
+
+        .team-category-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .team-category-title {
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-category-desc {
+            color: var(--taupe);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .team-member {
+            background: var(--white);
+            border: 1px solid rgba(196, 181, 157, 0.2);
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(44, 36, 22, 0.06);
+            border-color: rgba(196, 181, 157, 0.4);
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--beige);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s ease;
+        }
+
+        .team-member:hover::before { transform: scaleX(1); }
+
+        .team-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sand), var(--beige));
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(196, 181, 157, 0.3);
+        }
+
+        .team-avatar::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 2px solid var(--beige);
+            opacity: 0.3;
+        }
+
+        .team-member h3 {
+            font-size: 1.4rem;
+            color: var(--charcoal);
+            margin-bottom: 0.3rem;
+        }
+
+        .team-role {
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--beige);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .team-bio {
+            color: var(--brown);
+            font-size: 0.85rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .team-social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--beige);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--taupe);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .team-social a:hover {
+            background: var(--charcoal);
+            color: var(--cream);
+            border-color: var(--charcoal);
+            transform: translateY(-2px);
+        }
+
+        .team-join {
+            background: var(--dark);
+            color: var(--cream);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .team-join h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-join p {
+            color: var(--taupe);
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            font-weight: 300;
+            font-size: 0.95rem;
+        }
+
+        .btn-join {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--cream);
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-join:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--taupe);
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content { max-width: 1200px; margin: 0 auto; }
+        .footer-logo { width: 80px; opacity: 0.6; margin-bottom: 2rem; }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--taupe);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover { color: var(--cream); }
+
+        .footer-divider {
+            width: 40px;
+            height: 1px;
+            background: var(--brown);
+            margin: 0 auto 2rem;
+            opacity: 0.5;
+        }
+
+        .footer-copy { font-size: 0.75rem; letter-spacing: 0.1em; opacity: 0.6; }
+        .footer-domain { margin-top: 0.5rem; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--beige); opacity: 0.8; }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav { padding: 1rem 2rem; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .mobile-nav { display: flex; }
+        }
+
+        @media (max-width: 640px) {
+            .page-header { padding: 8rem 1.5rem 3rem; }
+            .team-section { padding: 4rem 1.5rem; }
+            .team-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body> 
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="img/thenamelesstree_logo.png" alt="TheNamelessTree Logo">
+            <span class="nav-logo-text">TheNamelessTree</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#ecosystem">Ecosystem</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="index.html#values">Values</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html#about">About</a>
+        <a href="index.html#ecosystem">Ecosystem</a>
+        <a href="team.html">Team</a>
+        <a href="index.html#values">Values</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <span class="page-label">The People</span>
+        <h1 class="page-title">Our Team</h1>
+        <p class="page-subtitle">Visionaries, architects, and builders cultivating the future of African digital infrastructure.</p>
+    </header>
+
+    <!-- Leadership Team -->
+    <section class="team-section">
+        <div class="team-category">
+            <div class="team-category-header reveal">
+                <h2 class="team-category-title">Leadership</h2>
+                <p class="team-category-desc">Guiding the vision and strategy of TheNamelessTree and its ecosystem.</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member reveal">
+                    <div class="team-avatar">F</div>
+                    <h3>Founder & CEO</h3>
+                    <div class="team-role">Chief Executive Officer</div>
+                    <p class="team-bio">Visionary leader with deep expertise in blockchain architecture, African fintech markets, and post-quantum cryptography. Drives the strategic direction of TheNamelessTree and its subsidiary ventures.</p>
+                    <div class="team-social">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                        <a href="mailto:ceo@thenamelesstree.africa" aria-label="Email">@</a>
+                    </div>
+                </div>
+
+                <div class="team-member reveal">
+                    <div class="team-avatar">CT</div>
+                    <h3>Chief Technology Officer</h3>
+                    <div class="team-role">Technology & Architecture</div>
+                    <p class="team-bio">Leads the technical vision for Shamwari blockchain and all technology initiatives. Expert in distributed systems, consensus mechanisms, and post-quantum cryptographic implementations.</p>
+                    <div class="team-social">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                        <a href="mailto:cto@thenamelesstree.africa" aria-label="Email">@</a>
+                    </div>
+                </div>
+
+                <div class="team-member reveal">
+                    <div class="team-avatar">CO</div>
+                    <h3>Chief Operations Officer</h3>
+                    <div class="team-role">Operations & Strategy</div>
+                    <p class="team-bio">Oversees day-to-day operations, regulatory compliance, and cross-border coordination. Brings extensive experience in African regulatory frameworks and corporate governance.</p>
+                    <div class="team-social">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                        <a href="mailto:coo@thenamelesstree.africa" aria-label="Email">@</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Team -->
+        <div class="team-category">
+            <div class="team-category-header reveal">
+                <h2 class="team-category-title">Engineering & Product</h2>
+                <p class="team-category-desc">Building the infrastructure that powers our ecosystem.</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member reveal">
+                    <div class="team-avatar">LE</div>
+                    <h3>Lead Blockchain Engineer</h3>
+                    <div class="team-role">Core Protocol Development</div>
+                    <p class="team-bio">Architects the Shamwari blockchain protocol, focusing on consensus algorithms, validator networks, and cross-chain interoperability solutions.</p>
+                    <div class="team-social">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="GitHub">gh</a>
+                        <a href="mailto:engineering@thenamelesstree.africa" aria-label="Email">@</a>
+                    </div>
+                </div>
+
+                <div class="team-member reveal">
+                    <div class="team-avatar">SP</div>
+                    <h3>Senior Product Manager</h3>
+                    <div class="team-role">Product Strategy</div>
+                    <p class="team-bio">Drives product roadmap for Totem Exchange and digital certificate platforms. Bridges technical capabilities with market needs across African fintech ecosystems.</p>
+                    <div class="team-social">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                        <a href="mailto:product@thenamelesstree.africa" aria-label="Email">@</a>
+                    </div>
+                </div>
+
+                <div class="team-member reveal">
+                    <div class="team-avatar">DS</div>
+                    <h3>DevOps & Security Lead</h3>
+                    <div class="team-role">Infrastructure & Security</div>
+                    <p class="team-bio">Ensures the resilience and security of all platform infrastructure. Implements zero-trust architectures and manages incident response protocols.</p>
+                    <div class="team-social">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="GitHub">gh</a>
+                        <a href="mailto:security@thenamelesstree.africa" aria-label="Email">@</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advisory -->
+        <div class="team-category">
+            <div class="team-category-header reveal">
+                <h2 class="team-category-title">Advisory Board</h2>
+                <p class="team-category-desc">Strategic counsel from industry veterans and continental leaders.</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member reveal">
+                    <div class="team-avatar">A1</div>
+                    <h3>Strategic Advisor</h3>
+                    <div class="team-role">Finance & Investment</div>
+                    <p class="team-bio">Former investment banker with 20+ years experience in African capital markets. Provides guidance on fundraising, investor relations, and financial structuring.</p>
+                    <div class="team-social">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                    </div>
+                </div>
+
+                <div class="team-member reveal">
+                    <div class="team-avatar">A2</div>
+                    <h3>Legal Advisor</h3>
+                    <div class="team-role">Regulatory & Compliance</div>
+                    <p class="team-bio">International law expert specializing in digital asset regulation, data protection (GDPR/POPIA), and multi-jurisdictional corporate frameworks.</p>
+                    <div class="team-social">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                    </div>
+                </div>
+
+                <div class="team-member reveal">
+                    <div class="team-avatar">A3</div>
+                    <h3>Technical Advisor</h3>
+                    <div class="team-role">Cryptography & Research</div>
+                    <p class="team-bio">Academic researcher in post-quantum cryptography and zero-knowledge proofs. Advises on cryptographic roadmap and security audits.</p>
+                    <div class="team-social">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="GitHub">gh</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Join Us -->
+        <div class="team-join reveal">
+            <h3>Join Our Growing Team</h3>
+            <p>We're always looking for exceptional talent passionate about building Africa's digital future. If you don't see a role that fits, reach out anyway.</p>
+            <a href="index.html#contact" class="btn-join">View Opportunities</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="img/thenamelesstree_logo.png" alt="TheNamelessTree" class="footer-logo">
+            
+            <ul class="footer-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#ecosystem">Ecosystem</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="index.html#values">Values</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html">Terms of Service</a></li>
+            </ul>
+
+            <div class="footer-divider"></div>
+            
+            <p class="footer-copy">© <span id="year"></span> TheNamelessTree. All rights reserved.</p>
+            <p class="footer-domain">thenamelesstree.africa</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        });
+
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Intersection Observer for reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Update copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
